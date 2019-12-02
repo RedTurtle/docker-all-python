@@ -14,7 +14,8 @@ $> docker run -it -v "$(pwd)":/path/to_new_worrking_directory docker-python-2.4.
 ### How to get `virtualenv` to work on python2.4
 ```bash
 $> cd working_directory
-$> python /usr/local/bin/virtualenv-1.7/virtualenv.py -p python 2.4
+$> python /usr/local/bin/virtualenv-1.7/virtualenv.py -p python 2.4 .
+$> source bin/activate
 ```
 
 NOTE: if for anny reason the above doesn't work, try the following:
@@ -22,6 +23,7 @@ NOTE: if for anny reason the above doesn't work, try the following:
 $> wget -O virtualenv-1.7.tar.gz "https://files.pythonhosted.org/packages/bf/a0/45ecac80034dbc040fb4f5036f32cb40005df71e496ccd137eb65e5a69e6/virtualenv-1.7.tar.gz"
 $> tar xfz virtualenv-1.7.tar.gz virtualenv-1.7
 $> python virtualenv-1.7/virtualenv.py -p python2.4 .
+$> source bin/activate
 ```
 This should download ad extract the tar directly into your working directory.
 
