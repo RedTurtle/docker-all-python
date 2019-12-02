@@ -2,7 +2,7 @@
 FROM ubuntu:18.04
 MAINTAINER Martina Bustacchini "martina.bustacchini@redturtle.it"
 # update and upgrade all necessary packages
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 # install openssl
 RUN apt-get update && \
     apt-get install -qq -y openssl
@@ -40,6 +40,7 @@ RUN apt-get install -qq -y \
     python3.5 \
     python3.6 \
     python3.7 \
+    python3.8 \
     pypy
 # install pip for python 2 and 3
 RUN apt-get update && \
@@ -47,9 +48,9 @@ RUN apt-get update && \
 # other additional steps if needed
 # ================================
 # download virtualenv package for python 2.4
-RUN cd usr/local/bin 
-RUN wget -P usr/local/bin "https://files.pythonhosted.org/packages/bf/a0/45ecac80034dbc040fb4f5036f32cb40005df71e496ccd137eb65e5a69e6/virtualenv-1.7.tar.gz"
-RUN tar xfz usr/local/bin/virtualenv-1.7.tar.gz -C usr/local/bin/
+RUN wget -P /etc/python2.4 "https://files.pythonhosted.org/packages/bf/a0/45ecac80034dbc040fb4f5036f32cb40005df71e496ccd137eb65e5a69e6/virtualenv-1.7.tar.gz"
+RUN tar xfz /etc/python2.4/virtualenv-1.7.tar.gz -C /etc/python2.4
+RUN rm /etc/python2.4/virtualenv-1.7.tar.gz
 
 # ================================
 # clean cache

@@ -14,7 +14,7 @@ $> docker run -it -v "$(pwd)":/path/to_new_worrking_directory docker-python-2.4.
 ### How to get `virtualenv` to work on python2.4
 ```bash
 $> cd working_directory
-$> python /usr/local/bin/virtualenv-1.7/virtualenv.py -p python 2.4
+$> python /etc/python2.4/virtualenv-1.7/virtualenv.py -p python 2.4
 ```
 
 NOTE: if for anny reason the above doesn't work, try the following:
