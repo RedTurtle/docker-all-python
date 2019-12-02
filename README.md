@@ -8,7 +8,7 @@ software
 ### How to use to launch old buildouts
 ```bash
 $> cd folder_you_need_to_work_on
-$> docker run -it -v "$(pwd)":/path/to_new_worrking_directory docker-python-2.4.3
+$> docker run -it -v "$(pwd)":/path/to_new_worrking_directory docker-python-2.4.3 .
 ```
 
 ### How to get `virtualenv` to work on python2.4
