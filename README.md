@@ -5,34 +5,38 @@
 This image is useful for running tests using docker on legacy Python 2.4
 software
 
-### How to use
+### How to use to launch old buildouts
 ```bash
-$> docker run --name legacy -it --rm pantuza/python24
-```
-Default behavior is to enter in a Python 2.4 shell.
-If you want to run something else like get a bash shell, use:
-```bash
-$> docker run --name legacy -it --rm pantuza/python24 bash
+$> cd folder_you_need_to_work_on
+$> docker run -it -v "$(pwd)":/path/to_new_worrking_directory docker-python-2.4.3
 ```
 
-Or if you want to add your project files on the container and run your legacy
-project, use:
+### How to get `virtualenv` to work on python2.4
 ```bash
-$> docker run --name legacy -it --rm -v$(pwd):/opt/ -w /opt/ pantuza/python24
-python my_project_main.py
+$> cd working_directory
+$> python /usr/local/bin/virtualenv-1.7/virtualenv.py -p python 2.4
 ```
 
+NOTE: if for anny reason the above doesn't work, try the following:
+```bash
+$> wget -O virtualenv-1.7.tar.gz "https://files.pythonhosted.org/packages/bf/a0/45ecac80034dbc040fb4f5036f32cb40005df71e496ccd137eb65e5a69e6/virtualenv-1.7.tar.gz"
+$> tar xfz virtualenv-1.7.tar.gz virtualenv-1.7
+$> python virtualenv-1.7/virtualenv.py -p python2.4
+```
+This should download ad extract the tar directly into your working directory.
 
 ### Basic Example
 
 ```bash
-$> docker run --rm -it --name legacy python24:latest                                                                 (master) 18:26:35
+$> docker run --rm -it --name docker-python-2.4.3:latest                                                                 (master) 18:26:35
 Python 2.4.3 (#1, Jan 19 2018, 20:23:57)
 [GCC 4.8.5] on linux4
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
+### Fork Author
+Martina Bustacchini <martina.bustacchini@redturtle.it>
 
-### Author
+### Original Author
 Gustavo Pantuza <gustavopantuza@gmail.com>
